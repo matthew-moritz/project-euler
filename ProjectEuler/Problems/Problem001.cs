@@ -1,12 +1,23 @@
 ﻿
 namespace ProjectEuler.Problems
 {
-    class Problem001 : IProblem
+    internal class Problem001 : IProblem
     {
-        public string Title => "Multiples of 3 and 5";
-
+        /// <summary>
+        /// The problem number.
+        /// </summary>
         public int Number => 1;
 
+        /// <summary>
+        /// The title.
+        /// </summary>
+        public string Title => "Multiples of 3 and 5";
+
+        /// <summary>
+        /// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+        ///
+        /// Find the sum of all the multiples of 3 or 5 below 1000.
+        /// </summary>
         public string Solve()
         {
             var sum = 0;

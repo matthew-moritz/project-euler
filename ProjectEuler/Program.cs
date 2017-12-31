@@ -6,9 +6,12 @@ namespace ProjectEuler
 {
     class Program
     {
-        private const string QUIT = "q";
+        private const string QUIT = "quit";
         private const string LIST = "list";
 
+        /// <summary>
+        /// The main method of the application.
+        /// </summary>
         static void Main(string[] args)
         {
             var datasource = new Datasource();
@@ -20,10 +23,10 @@ namespace ProjectEuler
 
             while (!isQuit)
             {
-                DisplayInputPrompt();
-                input = Console.ReadLine();
+                // Wait for user input.
+                input = DisplayInputPrompt();
 
-                switch (input)
+                switch (input.ToLower())
                 {
                     case LIST:
                         DisplayAllSolvedProblems(datasource);
@@ -38,14 +41,19 @@ namespace ProjectEuler
             };
         }
 
+        /// <summary>
+        /// Attempts to fetch the problem and solve it.
+        /// </summary>
         private static void TrySolve(string input, Datasource datasource)
         {
-            if (!int.TryParse(input, out var number))
+            // Get the problem number.
+            if(!int.TryParse(input, out var number))
             {
                 Console.WriteLine("  Invalid input. Try again.");
                 return;
             }
 
+            // Get the problem.
             var problem = datasource.GetProblem(number);
             if (problem == null)
             {
@@ -53,9 +61,13 @@ namespace ProjectEuler
                 return;
             }
 
+            // Output the solution to the problem.
             Console.WriteLine($"  {problem.Solve()}");
         }
 
+        /// <summary>
+        /// Displays the initial message when the application is started.
+        /// </summary>
         private static void DisplayWelcomeMessage()
         {
             var builder = new StringBuilder();
@@ -64,28 +76,35 @@ namespace ProjectEuler
             builder.AppendLine(" Project Euler");
             builder.AppendLine(" ");
             builder.AppendLine(" Type \"list\" to display a list of solved problems.");
-            builder.AppendLine(" Type \"q\" to quit.");
+            builder.AppendLine(" Type \"quit\" to quit.");
             builder.AppendLine("----------------------");
 
             Console.Write(builder.ToString());
         }
 
-        private static void DisplayInputPrompt()
+        /// <summary>
+        /// Displays the input prompt to the user and waits for input.
+        /// </summary>
+        private static string DisplayInputPrompt()
         {
             Console.Write("# ");
+            return Console.ReadLine();
         }
 
+        /// <summary>
+        /// Displays a list of all solved problems.
+        /// </summary>
         private static void DisplayAllSolvedProblems(IDatasource datasource)
         {
-            Console.WriteLine("Solved Problems:");
+            Console.WriteLine("  Solved Problems:");
 
             var problems = datasource.GetProblems();
 
             if (problems.Count() != 0)
                 foreach (var problem in datasource.GetProblems())
-                    Console.WriteLine($"  {problem.Number}\t{problem.Title}");
+                    Console.WriteLine($"    {problem.Number}\t{problem.Title}");
             else
-                Console.WriteLine("  There are no solved problems.");            
+                Console.WriteLine("    There are no solved problems.");            
 
             Console.WriteLine();
         }

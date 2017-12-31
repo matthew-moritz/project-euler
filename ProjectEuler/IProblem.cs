@@ -7,14 +7,14 @@ namespace ProjectEuler
     internal interface IProblem
     {
         /// <summary>
-        /// The title.
-        /// </summary>
-        string Title { get; }
-
-        /// <summary>
         /// The problem number.
         /// </summary>
         int Number { get; }
+
+        /// <summary>
+        /// The title.
+        /// </summary>
+        string Title { get; }
 
         /// <summary>
         /// The solution to the problem.
