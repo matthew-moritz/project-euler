@@ -2,34 +2,36 @@
 
 namespace ProjectEuler.Problems
 {
-    internal class Problem003 : IProblem
+    internal class Problem007 : IProblem
     {
-        private const long VALUE = 600851475143;
+        private const int MAX_VALUE = 10001;
+
         /// <summary>
         /// The problem number.
         /// </summary>
-        public int Number => 3;
+        public int Number => 7;
 
         /// <summary>
-        /// The title of the problem.
+        /// THe title of the problem.
         /// </summary>
-        public string Title => "Largest prime factor";
+        public string Title => "10001st prime";
 
         /// <summary>
-        /// Solves the problem.
+        /// Sovles the problem.
         /// </summary>
         public string Solve()
         {
-            var i = (int)Math.Sqrt(VALUE);
+            var count = 0;
+            var number = 1;
 
-            while (i > 0)
+            while(count < MAX_VALUE)
             {
-                if (VALUE % i == 0 && IsPrime(i))
-                    return $"{i}";
-                i--;
+                number++;
+                if (IsPrime(number))
+                    count++;
             }
 
-            return string.Empty;
+            return $"{number}";
         }
 
         /// <summary>

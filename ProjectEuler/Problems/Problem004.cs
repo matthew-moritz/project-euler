@@ -1,61 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProjectEuler.Problems
 {
     internal class Problem004 : IProblem
-    {
+    {       
+        private const int MIN_VALUE = 99;
+        private const int MAX_VALUE = 999;
+
         /// <summary>
         /// The problem number.
         /// </summary>
         public int Number => 4;
 
         /// <summary>
-        /// The title.
+        /// The title of the problem.
         /// </summary>
         public string Title => "Largest palindrome product";
 
         /// <summary>
-        /// A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
-        ///
-        /// Find the largest palindrome made from the product of two 3-digit numbers.
+        /// Solves the problem.
         /// </summary>
         public string Solve()
         {
-            const int MIN = 100;
-            const int MAX = 999;
+            var largest = 0;
 
-            int product, largestPalindrome = 0;
-            for (int i = MAX; i >= MIN; i--)
-            {
-                for (int j = MAX; j >= MIN; j--)
+            for (var i = MAX_VALUE; i > MIN_VALUE; i--)
+                for(var j = MAX_VALUE; j > MIN_VALUE; j--)
                 {
-                    product = i * j;
-                    if (IsPalindromic(product) && product > largestPalindrome)
-                        largestPalindrome = product;
+                    var n = i * j;
+                    if (n > largest && IsPalindrome($"{n}"))
+                        largest = n;
                 }
-            }
-            return $"{largestPalindrome}";
+
+            return $"{largest}";
         }
 
-        /// <summary>
-        /// Determines whether a number is a palindrome.
-        /// </summary>
-        private bool IsPalindromic(int product)
+        private bool IsPalindrome(string s)
         {
-            var productString = $"{product}";
+            if (s == string.Empty)
+                return false;
 
-            int start = 0;
-            int end = productString.Length - 1;
+            var start = 0;
+            var end = s.Length - 1;
 
-            while (start < end)
+            var chars = s.ToCharArray();
+            while(start < end)
             {
-                if (productString[start] != productString[end])
+                if (chars[start] != chars[end])
                     return false;
 
-                start += 1;
-                end -= 1;
+                start++;
+                end--;
             }
 
             return true;
