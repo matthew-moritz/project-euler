@@ -1,9 +1,12 @@
 ﻿
+using MathNet.Numerics;
+using System.Linq;
+
 namespace ProjectEuler.Problems
 {
     internal class Problem001 : ProblemBase
     {
-        private const int MAX_VALUE = 1000;
+        private const int MAX_VALUE = 999;
 
         /// <summary>
         /// Multiples of 3 and 5
@@ -17,12 +20,7 @@ namespace ProjectEuler.Problems
         /// <inheritdoc />
         public override string Solve()
         {
-            var sum = 0;
-            for (var i = 0; i < MAX_VALUE; i++)
-                if (i % 3 == 0 || i % 5 == 0)
-                    sum += i;
-
-            return $"{sum}";
+            return $"{Enumerable.Range(1, MAX_VALUE).Where(x => x % 3 == 0 || x % 5 == 0).Sum()}";
         }
     }
 }
