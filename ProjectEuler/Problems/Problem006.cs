@@ -2,24 +2,14 @@
 
 namespace ProjectEuler.Problems
 {
-    internal class Problem006 : IProblem
+    internal class Problem006 : ProblemBase
     {
         private const int MAX_VALUE = 100;
 
-        /// <summary>
-        /// The problem number.
-        /// </summary>
-        public int Number => 6;
+        public Problem006() : base(6, "Sum square difference") { }
 
-        /// <summary>
-        /// The title of the problem.
-        /// </summary>
-        public string Title => "Sum square difference";
-
-        /// <summary>
-        /// Solves the problem.
-        /// </summary>
-        public string Solve()
+        /// <inheritdoc />
+        public override string Solve()
         {
             var sum = 0;
             var sumOfSquares = 0;

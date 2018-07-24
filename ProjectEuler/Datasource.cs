@@ -1,13 +1,16 @@
 ﻿using ProjectEuler.Problems;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectEuler
 {
     internal class DataSource : IDataSource
     {
-        public IEnumerable<IProblem> LoadProblems()
+        IEnumerable<IProblem> _problems;
+
+        public DataSource()
         {
-            var problems = new List<IProblem>
+            _problems = new List<IProblem>
             {
                 new Problem001(),
                 new Problem002(),
@@ -19,8 +22,16 @@ namespace ProjectEuler
                 new Problem008(),
                 new Problem009()
             };
+        }
 
-            return problems;
+        public IProblem GetProblem(int number)
+        {
+            return _problems.FirstOrDefault(x => x.Number == number);
+        }
+
+        public IEnumerable<IProblem> GetProblems()
+        {
+            return _problems;
         }
     }
 }

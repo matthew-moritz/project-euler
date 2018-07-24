@@ -1,14 +1,11 @@
-﻿using ProjectEuler.Problems;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ProjectEuler
 {
     internal interface IDataSource
     {
-        IEnumerable<IProblem> LoadProblems();
+        IProblem GetProblem(int number);
+
+        IEnumerable<IProblem> GetProblems();
     }
 }

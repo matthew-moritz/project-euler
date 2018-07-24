@@ -2,7 +2,7 @@
 namespace ProjectEuler
 {
     /// <summary>
-    /// The interface for a problem.
+    /// A problem.
     /// </summary>
     internal interface IProblem
     {

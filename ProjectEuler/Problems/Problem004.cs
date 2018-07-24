@@ -1,26 +1,15 @@
-﻿using System;
-
+﻿
 namespace ProjectEuler.Problems
 {
-    internal class Problem004 : IProblem
+    internal class Problem004 : ProblemBase
     {       
         private const int MIN_VALUE = 99;
         private const int MAX_VALUE = 999;
 
-        /// <summary>
-        /// The problem number.
-        /// </summary>
-        public int Number => 4;
+        public Problem004() : base(4, "Largest palindrome product") { }
 
-        /// <summary>
-        /// The title of the problem.
-        /// </summary>
-        public string Title => "Largest palindrome product";
-
-        /// <summary>
-        /// Solves the problem.
-        /// </summary>
-        public string Solve()
+        /// <inheritdoc />
+        public override string Solve()
         {
             var largest = 0;
 

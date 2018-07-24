@@ -2,22 +2,12 @@
 
 namespace ProjectEuler.Problems
 {
-    internal class Problem009 : IProblem
+    internal class Problem009 : ProblemBase
     {
-        /// <summary>
-        /// The problem number.
-        /// </summary>
-        public int Number => throw new NotImplementedException();
+        public Problem009() : base(9, "") { }
 
-        /// <summary>
-        /// The title of the problem.
-        /// </summary>
-        public string Title => throw new NotImplementedException();
-
-        /// <summary>
-        /// Solves the problem.
-        /// </summary>
-        public string Solve()
+        /// <inheritdoc />
+        public override string Solve()
         {
             throw new NotImplementedException();
         }

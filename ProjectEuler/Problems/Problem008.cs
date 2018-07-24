@@ -1,26 +1,15 @@
-﻿
-using System;
+﻿using System;
 
 namespace ProjectEuler.Problems
 {
-    internal class Problem008 : IProblem
+    internal class Problem008 : ProblemBase
     {
         private const int MAX_VALUE = 13;
 
-        /// <summary>
-        /// The problem number.
-        /// </summary>
-        public int Number => 8;
-
-        /// <summary>
-        /// The title of the problem.
-        /// </summary>
-        public string Title => "Largest product in a series";
-
-        /// <summary>
-        /// Solves the problem.
-        /// </summary>
-        public string Solve()
+        public Problem008() : base(8, "Largest product in a series") { }
+       
+        /// <inheritdoc />
+        public override string Solve()
         {
             var input = "73167176531330624919225119674426574742355349194934"
                 + "96983520312774506326239578318016984801869478851843"

@@ -2,24 +2,14 @@
 
 namespace ProjectEuler.Problems
 {
-    internal class Problem005 : IProblem
+    internal class Problem005 : ProblemBase
     {
         private const int MAX_VALUE = 20;
 
-        /// <summary>
-        /// The problem number.
-        /// </summary>
-        public int Number => 5;
-
-        /// <summary>
-        /// The title of the problem.
-        /// </summary>
-        public string Title => "Smallest multiple";
-
-        /// <summary>
-        /// Solves the problem.
-        /// </summary>
-        public string Solve()
+        public Problem005() : base(5, "Smallest multiple") { }
+       
+        /// <inheritdoc />
+        public override string Solve()
         {
             var factors = ReduceFactors(MAX_VALUE);
 
