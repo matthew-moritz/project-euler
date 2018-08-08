@@ -5,13 +5,13 @@ namespace ProjectEuler.Problems
 {
     internal class Problem007 : ProblemBase
     {
-        private const int MAX_VALUE = 10001;
-
         public Problem007() : base(7, "10001st prime") { }
        
         /// <inheritdoc />
         public override string Solve()
         {
+            const int MAX_VALUE = 10001;
+
             var count = 0;
             var number = 1;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectEuler.PeMath;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -16,7 +17,7 @@ namespace ProjectEuler.Problems
 
         public override string Solve()
         {
-            var sieve = SieveOfEratostehenes(2000000);
+            var sieve = Prime.SieveOfEratostehenes(2000000);
 
             var sum = sieve.Select(x => new BigInteger(x)).Aggregate((current, i) => current + i);
             return $"{sum}";

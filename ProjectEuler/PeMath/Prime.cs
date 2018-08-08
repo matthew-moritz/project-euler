@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectEuler.PeMath
 {
@@ -40,6 +42,27 @@ namespace ProjectEuler.PeMath
                     return false;
 
             return true;
+        }
+
+        public static IEnumerable<int> SieveOfEratostehenes(int n)
+        {
+            var values = new bool[n];
+            Array.Fill(values, true);
+
+            var max = (int)Math.Sqrt(n);
+
+            values[0] = false;
+            values[1] = false;
+            for (var i = 2; i <= max; i++)
+            {
+                if (!values[i])
+                    continue;
+
+                for (var j = (int)Math.Pow(i, 2); j < n; j += i)
+                    values[j] = false;
+            }
+
+            return values.Select((x, index) => new { x, index }).Where(y => y.x).Select(x => x.index);
         }
     }
 }
