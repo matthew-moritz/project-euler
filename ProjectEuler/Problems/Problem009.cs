@@ -4,20 +4,20 @@ using System.Linq;
 
 namespace ProjectEuler.Problems
 {
+    /// <summary>
+    /// Special Pythagorean triplet
+    ///
+    /// A Pythagorean triplet is a set of three natural numbers, a is less than b is less than c, for which,
+    /// 
+    ///     a^2 + b^2 = c^2
+    /// 
+    /// For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
+    /// 
+    /// There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+    /// Find the product abc.
+    /// </summary>
     internal class Problem009 : ProblemBase
     {
-        /// <summary>
-        /// Special Pythagorean triplet
-        ///
-        /// A Pythagorean triplet is a set of three natural numbers, a is less than b is less than c, for which,
-        /// 
-        ///     a^2 + b^2 = c^2
-        /// 
-        /// For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
-        /// 
-        /// There exists exactly one Pythagorean triplet for which a + b + c = 1000.
-        /// Find the product abc.
-        /// </summary>
         public Problem009() : base(9, "Special Pythagorean triplet") { }
 
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace ProjectEuler.Problems
         {
             var max = (int)Math.Sqrt(1000);
 
-            // Generate primitive pythagorean triplets where a, b, c are < sqrt(1000)
+            // Generate pythagorean triplets where a, b, c are < sqrt(1000)
             var triplets = new List<(int A, int B, int C)>();
             for (var a = 1; a < max; a++)
                 for (var b = 1; b < max; b++)

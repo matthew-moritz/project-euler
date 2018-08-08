@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ProjectEuler.PeMath
 {
-    public static class Prime
+    internal static class PrimeUtils
     {
         /// <summary>
         /// Determines if a value is a prime number.
@@ -44,6 +44,9 @@ namespace ProjectEuler.PeMath
             return true;
         }
 
+        /// <summary>
+        /// Determines a collection of prime numbers less that the specified value n.
+        /// </summary>
         public static IEnumerable<int> SieveOfEratostehenes(int n)
         {
             var values = new bool[n];

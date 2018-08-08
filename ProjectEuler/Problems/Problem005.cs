@@ -2,15 +2,20 @@
 
 namespace ProjectEuler.Problems
 {
+    /// <summary>
+    /// 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+    ///
+    /// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+    /// </summary>
     internal class Problem005 : ProblemBase
     {
-        private const int MAX_VALUE = 20;
-
         public Problem005() : base(5, "Smallest multiple") { }
        
         /// <inheritdoc />
         public override string Solve()
         {
+            const int MAX_VALUE = 20;
+
             var factors = ReduceFactors(MAX_VALUE);
 
             int i = MAX_VALUE;
