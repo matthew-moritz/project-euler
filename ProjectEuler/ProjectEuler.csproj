@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Problems\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MathNet.Numerics" Version="4.5.1" />
   </ItemGroup>
 

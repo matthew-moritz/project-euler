@@ -1,6 +1,4 @@
-﻿
-using MathNet.Numerics;
-using System.Linq;
+﻿using System.Linq;
 
 namespace ProjectEuler.Problems
 {
