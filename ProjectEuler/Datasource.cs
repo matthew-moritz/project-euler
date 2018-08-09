@@ -21,7 +21,8 @@ namespace ProjectEuler
                 new Problem007(),
                 new Problem008(),
                 new Problem009(),
-                new Problem010()
+                new Problem010(),
+                new Problem011()
             };
         }
 
