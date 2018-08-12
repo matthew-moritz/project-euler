@@ -36,7 +36,8 @@ namespace ProjectEuler.Problems
 
         public override string Solve()
         {
-            var tree = new[] {
+            var tree = new[]
+            {
                 new[] {75},
                 new[] {95, 64},
                 new[] {17, 47, 82},
