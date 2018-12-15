@@ -17,8 +17,14 @@ namespace ProjectEuler.Problems
         /// <inheritdoc />
         public override string Solve()
         {
-            const int MAX_VALUE = 999;
-            return $"{Enumerable.Range(1, MAX_VALUE).Where(x => x % 3 == 0 || x % 5 == 0).Sum()}";
+            return $"{Enumerable.Range(1, 999).Where(x => x % 3 == 0 || x % 5 == 0).Sum()}";
         }
     }
 }
+
+/*
+ * F# implementation.
+ * module ProjectEuler =
+ *
+ *   let problem1 = [1..999] |> List.filter(fun x -> x % 3 = 0 || x % 5 = 0) |> List.sum 
+ */

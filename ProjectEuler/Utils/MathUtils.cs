@@ -23,5 +23,25 @@ namespace ProjectEuler.Utils
 
             return factors;
         }
+
+        public static IEnumerable<int> GetProperDivisors(int n)
+        {
+            var divisors = new List<int>();
+
+            for (int i = 1; i <= Math.Sqrt(n); i++)
+            {
+                if (n % i == 0)
+                {
+                    divisors.Add(i);
+
+                    if (n / i != i && n / i != n)
+                        divisors.Add(n / i);
+                }
+            }
+
+            divisors.Sort();
+
+            return divisors;
+        }
     }
 }
