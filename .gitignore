@@ -1,3 +1,6 @@
 .vs
 ProjectEuler/obj
 ProjectEuler/bin
+
+.fake
+.ionide
