@@ -6,14 +6,20 @@
   
   How many such routes are there through a 20×20 grid?
 *)
+let factorial x =
+  let rec tailRecursiveFactorial x f =
+    if x <= (bigint(1)) then
+      f()
+    else
+      tailRecursiveFactorial (x - (bigint(1))) (fun () -> x * f())
+  
+  tailRecursiveFactorial x (fun () -> (bigint(1)))
 
-let rec takeStep x y =
-  if x = 0L && y = 0L then
-    1L
-  else
-    let horizontal = if x = 0L then 0L else (takeStep (x - 1L) y)
-    let vertical = if y = 0L then 0L else (takeStep x (y - 1L))
-    horizontal + vertical
+let pascalRow n =
+  let numerator = factorial n
 
-// This takes 22 minutes to run. This can be optimized.
-takeStep 20L 20L
+  [(bigint(0))..n]
+  |> List.map (fun x -> numerator / ((factorial x) * (factorial (n - x))))
+
+let row = pascalRow (bigint(40))
+row.[row.Length/2]

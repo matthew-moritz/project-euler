@@ -19,7 +19,7 @@ A collection of solutions for [Project Euler](https://projecteuler.net/) problem
 |     12 | Highly divisible triangular number       | 76576500         | 0.292       | 0.273       |
 |     13 | Large sum                                | 5537376230       | 0.001       | 0.001       |
 |     14 | Longest Collatz sequence                 | 837799           | 2.304       | 0.166       |
-|     15 | Lattice paths                            | 137846528820     |             | <0.001      |
+|     15 | Lattice paths                            | 137846528820     | 0.002       | <0.001      |
 |     16 | Power digit sum                          | 1366             | 0.001       | <0.001      |
 |     17 | Number letter counts                     | 21124            | 0.001       | <0.001      | 
 |     18 | Maximum path sum I                       | 1074             |             | <0.001      |
