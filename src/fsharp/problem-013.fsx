@@ -40,8 +40,7 @@ let input =
 
 let sum =
   input
-  |> List.map (fun x -> x |> bigint.Parse)
-  |> List.sum
+  |> List.sumBy bigint.Parse
   |> string 
 
 sum.[0..9]
