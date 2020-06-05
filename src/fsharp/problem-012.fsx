@@ -21,17 +21,16 @@
 
   What is the value of the first triangle number to have over five hundred divisors?
 *)
-let getTriangle x =
-  [1..x] |> Seq.fold (+) 0
+let getTriangle x = [ 1 .. x ] |> Seq.sum
 
 let countDivisors n =
-  seq {
-    for x in 1 .. (float >> sqrt >> int) n do
-      if n % x = 0 then
-        yield x
-        if n <> 1 then yield n / x
-  }
-  |> Seq.length
+    seq {
+        for x in 1 .. (float >> sqrt >> int) n do
+            if n % x = 0 then
+                yield x
+                if n <> 1 then yield n / x
+    }
+    |> Seq.length
 
 // Keeping track of the previous triangle number increases performance by ~6x.
 (1, 0)
