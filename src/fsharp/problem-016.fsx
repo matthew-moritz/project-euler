@@ -7,5 +7,4 @@
 2.0 ** 1000.0
 |> bigint
 |> string
-|> Seq.map (fun x -> int x - int '0')
-|> Seq.sum
+|> Seq.sumBy (fun x -> int x - int '0')
