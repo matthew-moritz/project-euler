@@ -20,10 +20,8 @@ let isPrime n =
 
 // Finds the largest prime factor of a number.
 let findMaxPrimeFactor n =
-    let upperBound = int64 (sqrt(double (n)))
-
-    [ 2L .. upperBound ]
-    |> Seq.filter (fun x -> n % x = 0L)
+    n
+    |> findFactors
     |> Seq.filter isPrime
     |> Seq.max
 
