@@ -14,9 +14,9 @@ Find p(123, 678910)
 """
 
 
-def generate(L):
-    strL = str(L)
-    length = len(strL)
+def generate(l):
+    str_l = str(l)
+    length = len(str_l)
 
     i = 0
     j = 1
@@ -24,18 +24,17 @@ def generate(L):
     while True:
         j = int(str(2 * j)[:15])
         i += 1
-        if str(j)[:length] == strL:
+        if str(j)[:length] == str_l:
             yield i
 
 
-def p(L, n):
+def p(l, n):
     value = 0
-    generator = generate(L)
+    generator = generate(l)
 
     count = 0
     while count < n:
         value = next(generator)
-        print('c', count, '   v', value)
         count += 1
 
     return value
