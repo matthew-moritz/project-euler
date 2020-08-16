@@ -37,20 +37,15 @@ def get_combinations(input, digit):
     return [input] if first == -1 else [input[0:first] + chr + suffix for chr in [digit, '*'] for suffix in get_combinations(input[first + 1:], digit)]
 
 
-def get_expressions(input):
-    digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    return [combination for digit in digits for combination in get_combinations(input, digit) if combination != input]
-
-
 def prime_digit_replacement(size):
     expressions = dict()
     prime_generator = generate_primes()
 
     while True:
-        prime = next(prime_generator)
-        current_expressions = get_expressions(str(prime))
+        prime = str(next(prime_generator))
+        combinations = [combination for digit in '0123456789' for combination in get_combinations(prime, digit) if combination != prime]
 
-        for key in current_expressions:
+        for key in combinations:
             expressions.setdefault(key, []).append(prime)
             if len(expressions[key]) == size:
                 return expressions[key][0]
